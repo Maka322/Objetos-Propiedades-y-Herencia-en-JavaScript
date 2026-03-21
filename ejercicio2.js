@@ -26,10 +26,13 @@ Disponible: ${this.disponible}`)
 //! Clase extendida: Pelicula
 class Pelicula extends Contenido {
     constructor(titulo, genero, anio, duracionMinutos) {
-        super(titulo, genero, anio)
+        super(titulo, genero, anio,)
         this.duracionMinutos = duracionMinutos
         this.duracion_formateada = ``
+     
+
     }
+
     //? Método para mostrar la duración de la película en horas y minutos
     duracionFormateada() {
         const horas = Math.floor(this.duracionMinutos / 60);
@@ -97,3 +100,57 @@ pelicula1.estado()
 
 serie1.retirar()
 serie1.estado()
+
+//Catalogo completo
+//
+
+let pelicula3 = new Pelicula("BlancaNieves", "Romance", 1995, true, 110)
+let pelicula4 = new Pelicula("IronMan", "Acción", 2009, true, 130)
+let pelicula5 = new Pelicula("ScaryMovie", "Comedia", 2001, true, 160)
+
+let serie3 = new Serie("CasadePapel", "Drama", 2022, true, 10, 8)
+let serie4 = new Serie("Elite", "Acción", 2022, true, 8, 10)
+let serie5 = new Serie("Bridgerton", "Ciencia ficción", 2016, true, 40, 9)
+
+let catalogo = [pelicula3, pelicula4, pelicula5, serie3, serie4, serie5];
+for(let i=0; i< catalogo.length; i++) {
+    catalogo[i].ficha();
+    
+}
+
+catalogo = [pelicula3, pelicula4, pelicula5, serie3, serie4, serie5];
+for(let i=0; i< catalogo.length; i++) {
+    console.log(catalogo[i].ficha())
+ 
+}
+ 
+//Retiren dos contenidos e impriman su estado() para verificar
+//
+ 
+pelicula3.retirar();
+pelicula3.estado();
+ 
+ 
+serie3.retirar();
+serie3.estado();
+ 
+ 
+//Cuenten cuantos elementos siguen disponibles e impriman el resultado
+//
+
+//Node ejercicio2.js corre sin errores. El catalogo muestra la ficha de cada elemento.El conteo de disponibles es correcto tras los retiros 
+ 
+ 
+let disponibles = 0;
+ 
+for(let i=0; i< catalogo.length; i++) {
+  if(catalogo[i].disponible === true){
+    disponibles = disponibles + 1;
+  }
+ 
+}  
+console.log(`El conteo del catalogo es igual a ${disponibles}`);
+ 
+ 
+ 
+ 
